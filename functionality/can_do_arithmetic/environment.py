@@ -1,8 +1,7 @@
 from selenium import webdriver
-from pages.homepage import HomePage
-from pages.results import ResultPage
-from pages.page_components.answer_widget import AnswerWidget
-from pages.page_components.search_box import SearchBox
+
+from adapters.selenium.pages import HomePage, ResultPage
+from adapters.selenium.page_components import AnswerWidget, SearchBox
 
 class Placeholder(object):
     pass
