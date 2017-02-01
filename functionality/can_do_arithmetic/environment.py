@@ -1,26 +1,13 @@
 from selenium import webdriver
 
-from adapters.selenium.pages import HomePage, ResultPage
-from adapters.selenium.page_components import AnswerWidget, SearchBox
-
-class Placeholder(object):
-    pass
-
-
-URL='http://www.duckduckgo.com'
+from adapters.selenium.selenium_adapter import SeleniumAdapter
 
 
 def before_all(context):
-    context.browser = webdriver.Chrome('./chromedriver')
+    context.browser = webdriver.Chrome('./chromedriver') #is this the best way to do it?
     
-    context.pages = Placeholder()
-    context.pages.search_page = HomePage(
-        context.browser, URL, search_box=SearchBox(context.browser)
-    )
-
-    context.pages.result_page = ResultPage(
-        context.browser, URL, answer_widget=AnswerWidget(context.browser)
-    )
-
+    context.adapter = SeleniumAdapter(context.browser)
+    
 def after_all(context):
     pass
+
